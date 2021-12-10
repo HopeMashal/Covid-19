@@ -1,0 +1,120 @@
+/* Font Family */
+@font-face {
+  font-family: 'Algerian';
+  src: url('../assets/fonts/algerian.ttf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Commerical Script BT';
+  src: url('../assets/fonts/Commercial\ Script\ BT.ttf');
+  font-weight: bold;
+}
+/* Main */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: rgb(219, 252, 252);
+}
+.logo{
+  height: 8vh;
+  margin: 1vh;
+}
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 84vw;
+  font-size: 7vmin;
+  font-family: 'Algerian';
+}
+.navbar{
+  background-color: azure;
+  display: flex;
+  flex-direction: row;
+  height: 10vh;
+}
+.chart-space{
+  width:90vw;
+  height: 85vh;
+  border: 2px azure solid;
+  border-radius: 15px;
+  margin: 2.5vh 5vw;
+}
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+button{
+  margin: 1vmin;
+  padding: 1vmin 2vmin;
+  border: 2px rgb(100, 255, 255) solid;
+  border-radius: 10px;
+  background-color: rgb(183, 255, 255);
+  cursor: pointer;
+  font-family: 'Commerical Script BT';
+}
+button:hover{
+  border-color: rgb(0, 235, 235);
+  border-radius: 20px;
+  background-color: rgb(127, 238, 238);
+  color: rgb(49, 92, 92);
+}
+.ChartRegionArea,.InfoCountryArea{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chart-region,.info-country{
+  height: 55vh;
+  width: 55vw;
+  margin: 3vh 0;
+}
+.stat-button{
+  display: none;
+}
+.InfoCountryArea{
+  display: none;
+}
+.countriesOfregion{
+  display: none;
+  width:90vw;
+  border: 2px azure solid;
+  border-radius: 15px;
+  margin: 2.5vh 5vw;
+}
+.title-countries{
+  font-family: 'Algerian';
+  text-align: center;
+}
+.box{
+  width: 15vw;
+  height: 15vh;
+  border: 2px solid rgb(137, 250, 250);
+  border-radius: 10px;
+  background-color: rgb(224, 255, 255);
+  font-size: 3vmin;
+  margin: 1vmin;
+  font-family: 'Commerical Script BT';
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.boxes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width:80vw;
+}
+.info-country{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

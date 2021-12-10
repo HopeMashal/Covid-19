@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/images/icon.png">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+  <title>Covid 19</title>
+</head>
+<body>
+  <nav class="navbar">
+    <img class="logo" src="assets/images/logo.png">
+    <h1 class="title">Covid 19 Stats</h1>
+  </nav>
+  <div class="chart-space">
+    <div class="chart-area">
+      <div class="ChartRegionArea">
+        <canvas class="chart-region"></canvas>
+      </div>
+      <div class="InfoCountryArea">
+        <div class="info-country">
+          <h1 class="title-country title-countries"></h1>
+          <div class="boxes">
+            <p class="box">Total cases: <span class="totat-cases"></span></p>
+            <p class="box">New cases: <span class="new-cases"></span></p>
+            <p class="box">Total deaths: <span class="totat-deaths"></span></p>
+            <p class="box">New deaths: <span class="new-deaths"></span></p>
+            <p class="box">Total recovered: <span class="totat-recovered"></span></p>
+            <p class="box">In critical condition: <span class="critical-condition"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button">
+      <div class="stat-button">
+        <button class="stat-btn">Confirmed</button>
+        <button class="stat-btn">Deaths</button>
+        <button class="stat-btn">Recovered</button>
+        <button class="stat-btn">Critical</button>
+      </div>
+      <div class="region-button">
+        <button class="region-btn">Asia</button>
+        <button class="region-btn">Europe</button>
+        <button class="region-btn">Africa</button>
+        <button class="region-btn">Americas</button>
+        <button class="region-btn">World</button>
+      </div>
+    </div>
+  </div>
+  <div class="countriesOfregion"></div>
+
+  <script src="scripts/script.js"></script>
+  
+</body>
+</html>
