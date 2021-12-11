@@ -63,6 +63,7 @@ button:hover{
   border-radius: 20px;
   background-color: rgb(127, 238, 238);
   color: rgb(49, 92, 92);
+  transform: scale(1.5);
 }
 .ChartRegionArea,.InfoCountryArea{
   display: flex;
@@ -104,6 +105,14 @@ button:hover{
   display: flex;
   justify-content: center;
   flex-direction: column;
+  cursor: pointer; 
+}
+.box:hover{
+  transform: scale(1.5);
+  border-color: rgb(0, 235, 235);
+  background-color: rgb(127, 238, 238);
+  color: rgb(49, 92, 92);
+  border-radius: 42px;
 }
 .boxes{
   display: flex;
