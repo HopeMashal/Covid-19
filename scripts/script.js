@@ -25,9 +25,7 @@ let currentRegion='';
 async function fetchCountries() {//Fetch All countries of the world (Name,Region)
     const response = await fetch('https://api.allorigins.win/raw?url=https://restcountries.herokuapp.com/api/v1');
     const data = await response.json();
-    data.forEach(e => {
-        countries[e.cca2] = { name: e.name.common, region: e.region};
-    });
+    data.forEach(e => countries[e.cca2] = { name: e.name.common, region: e.region});
     await fetchWorldRegion();
 }
 
@@ -38,43 +36,29 @@ async function fetchWorldRegion() {//Sorting all countries of the world by regio
         if (regions[countries[e.code].region]) {//If the region is found in Regions, add the country to the region
             regions[countries[e.code].region].push(e.code);
             world.push({//adding countries(Name,Id,Region,Confirmed Stat) to the world
-                name: e.name, id: e.code, region: countries[e.code].region,
-                confirmed: e.latest_data.confirmed,
+                name: e.name, id: e.code, region: countries[e.code].region,confirmed: e.latest_data.confirmed,
             });
         } else {//If the region isn't found in Regions, create new array for the region, add the country to the region
             regions[countries[e.code].region] = [];
             regions[countries[e.code].region].push(e.code);
             world.push({
-                name: e.name, id: e.code, region: countries[e.code].region,
-                confirmed: e.latest_data.confirmed,
+                name: e.name, id: e.code, region: countries[e.code].region,confirmed: e.latest_data.confirmed,
             });
         }
         if (countries[e.code]) {//adding general statistics for countries
-            countries[e.code].generalStat = {
-                confirmed: e.latest_data.confirmed,
-                deaths: e.latest_data.deaths,
-                recovered: e.latest_data.recovered,
-                critical: e.latest_data.critical,
-            }
+            countries[e.code].generalStat = {confirmed: e.latest_data.confirmed,deaths: e.latest_data.deaths,recovered: e.latest_data.recovered,critical: e.latest_data.critical}
         }
     })
-
 }
 
 function getRegionCounrties(region) {//Return All Countries Names of Region
-    if (region === 'World') {
-        return CountriesWorld.world.map(e => countries[e].name)
-    } else {
-        return regions[region].map(e => countries[e].name)
-    }
+    if (region === 'World') return CountriesWorld.world.map(e => countries[e].name);
+    else return regions[region].map(e => countries[e].name);
 }
 
 function getRegionStat(region, stat) {//Return All Countries (Country Stat=>Number) of Region
-    if (region === 'World') {
-        return CountriesWorld.world.map(e => countries[e].generalStat[stat])
-    } else {
-        return regions[region].map(e => countries[e].generalStat[stat])
-    }
+    if (region === 'World') return CountriesWorld.world.map(e => countries[e].generalStat[stat])
+    else return regions[region].map(e => countries[e].generalStat[stat])
 }
 
 function ChartRegionStat() {//Region Chart Form
@@ -125,15 +109,6 @@ function setStatButton() {//Setting The Statistics Buttons(setting the region st
     })
 }
 
-async function SetThePage() {
-    await fetchCountries();
-    await ChartRegionStat();
-    theTopCountries();
-    setButtons();
-    setStatButton();
-}
-SetThePage();
-
 function theTopCountries() {//Get The top countries(show in world region)
     world.sort((a, b) => b.confirmed - a.confirmed).forEach(e => {//sorting the top countries
         if(!CountriesWorld.world) CountriesWorld.world = [];
@@ -171,3 +146,11 @@ async function getInfoCountryArea(CountryID) {//Get country information
     criticalcondition.innerText=`${data.data.latest_data.critical}`;
 }
 
+async function SetThePage() {//Setting the page(fetch countries,chart form,top countries,set stat and region buttons)
+    await fetchCountries();
+    await ChartRegionStat();
+    theTopCountries();
+    setButtons();
+    setStatButton();
+}
+SetThePage();
